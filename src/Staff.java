@@ -9,18 +9,37 @@ public class Staff {
         employees = new ArrayList<>();
     }
 
+    /**
+     * Добавление нового сотрудника
+     * @param employee новый сотрудник
+     */
     public void addEmployee(Employee employee) {
         employees.add(employee);
     }
 
+    /**
+     * Поиск сотрудника по ID
+     * @param id id сотрудника
+     * @return сотрудник по id
+     */
     public Employee getById(int id) {
         return employees.stream().filter(x -> x.id() == id).toList().get(0);
     }
 
+    /**
+     * Поиск сотрудников по стажу работы
+     * @param experience стаж работы
+     * @return список сотрудников по стажу работы
+     */
     public List<Employee> getByExperience(int experience) {
         return employees.stream().filter(x -> x.experience() == experience).toList();
     }
 
+    /**
+     * Поиск номера телефона/телефонов по имени сотрудника
+     * @param name имя сотрудника
+     * @return список телефонов
+     */
     public List<String> getPhoneNumberByName(String name) {
         return employees.stream()
                 .filter(employee -> employee.name().equals(name))
